@@ -1,0 +1,65 @@
+.survey{
+    border-style: solid;
+    border-width: 1px;
+    width: 80%;
+    margin: 0;
+}
+.coffee-order-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em;
+}
+.order-label{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 1em;
+}
+.order-field{
+    width: 80%;
+}
+.email-label{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 1em;
+}
+.email-box{
+    width: 80%; 
+}
+.radio-group{
+    display: flex;
+    flex-direction: column;
+}
+.radio-buttons{
+    padding-right: 8px;
+}
+.caffine-rating{
+    display: block;
+}
+.caffine-rating-bar{
+    width: 80%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.buttons{
+    display: inline;
+    padding: 1em;
+}
+.flavor-shot{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+    width: 80%
+}
+.order-list{
+    width: 80%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+li{
+    display: flex;
+    align-items: center;
+}

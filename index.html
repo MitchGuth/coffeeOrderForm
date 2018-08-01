@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>Coffee</title>
+</head>
+<body>
+    <h1>CoffeeRun</h1>
+    <div class="survey">
+    <form action ="" method="post" class="coffee-order-form">
+        <label class="order-label">
+            Coffee Order
+            <input name="coffee-order" class="order-field" required>
+        </label>
+        <label class="email-label">
+            Email
+            <input type="email" name="email" class="email-box" placeholder="dr@who.com" required>
+        </label>
+        <div class="radio radio-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="size" value="short" >
+                    Short
+                </label>
+                </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="size" value="tall" checked>
+                    Tall
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="size" value="grande" >
+                    Grande
+                </label>
+            </div>
+        </div>
+        <label class="flavor-shot">
+            Flavor Shot
+            <input name="flavor-shot" list="flavors" required>
+                <datalist id="flavors">
+                    <option value="Mocha">
+                    <option value="Vanilla">
+                    <option value="Carmel">
+                    <option value="Pumpkin-Spice">
+                </datalist>
+        </label>
+        <label class="caffine-rating">
+            Caffine Rating
+            <input type="range" class="caffine-rating-bar caffine-rating">
+        </label>
+            <div class="buttons">
+                <input type="submit" value="submit answers" name="submit">
+                <input type="reset" value="Reset" name="reset">
+            </div>  
+    </form>
+    </div> 
+    <div class="new-orders">
+        <ul class="order-list">
+            
+        </ul>
+    </div>
+    <form class="remove-button">
+        <input type="submit" value="Remove Completed Orders" name="remove">
+    </form>   
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
