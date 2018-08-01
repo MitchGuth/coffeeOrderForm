@@ -8,7 +8,7 @@ var currentOrders = [];
 
 var displayOrders = function(currentOrders){
     currentOrders.forEach(function(item){
-        var newOrder = item.coffeeOrder + " " + item.email + " " + item.coffeeSize + " " + item.flavorShot + " " + item.caffineRating;
+        var newOrder = item.coffee + " " + item.emailAddress + " " + item.size + " " + item.flavor + " " + item.strength;
         var newListItem = document.createElement('li');
         var newTextItem = document.createElement('p');
         newTextItem.textContent = newOrder;
@@ -33,14 +33,28 @@ var parseOrders = function(){
     return currentOrders;
 };
 
-parseOrders();
-displayOrders(currentOrders);
+var pullServerData = function(){
+    $.ajax("https://dc-coffeerun.herokuapp.com/api/coffeeorders", {
+        success: function(data){
+            var dataPlaceHolder = data;
+            currentOrders = dataPlaceHolder;
+            console.log(currentOrders);
+            //return currentOrders;
+            displayOrders(Object.values(currentOrders));
+        }
+    });
+};
+
+var 
+pullServerData();
+// parseOrders();
+//displayOrders(currentOrders);
 
 orderInput.addEventListener('submit', function(event){
     event.preventDefault();
     var coffeeSize = document.querySelector('[name="size"]:checked');
     var newOrder = coffeeOrder.value + " " + email.value + " " + coffeeSize.value + " " + flavorShot.value + " " + caffineRating.value;
-    var pendingOrder = {coffeeOrder: '', email: '', coffeeSize: '', flavorShot: '', caffineRating: ''};
+    var pendingOrder = {coffee: '', emailAddress: '', size: '', flavor: '', strength: ''};
     var newListItem = document.createElement('li');
     var newTextItem = document.createElement('p');
     newTextItem.textContent = newOrder;
@@ -51,10 +65,11 @@ orderInput.addEventListener('submit', function(event){
     newListItem.appendChild(newTextItem); 
     newListItem.classList.add("list-item-container")
     newOrderList.appendChild(newListItem);
-    pendingOrder.coffeeOrder = coffeeOrder.value;
-    pendingOrder.email = email.value;
-    pendingOrder.coffeeSize = coffeeSize.value;
-    pendingOrder.flavorShot = flavorShot.value;
+    pendingOrder.coffee = coffeeOrder.value;
+    pendingOrder.emailAddress= email.value;
+    pendingOrder.size = coffeeSize.value;
+    pendingOrder.flavor = flavorShot.value;
+    pendingOrder.strength = caffineRating.value;
     currentOrders.push(pendingOrder);
     saveOrders(currentOrders);
 });
@@ -76,6 +91,8 @@ removeChecked.addEventListener('submit', function(event){
     currentOrders = newCurrentOrders;
     saveOrders(currentOrders);
 });
+
+
 
 
 
